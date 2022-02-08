@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- @Component 어노테이션이 붙은 클래스를 빈으로 자동 등록 (빈 태그와 같이 사용해도 된다.) -->
+    <context:component-scan base-package="com.fastcampus.ch3">
+        <!-- car 클래스가 같은 패키지 내에 있다,  아래 코드로 제외 시킬 수 있다 -->
+        <context:exclude-filter type="regex" expression="com.fastcampus.ch3.diCopy*.*" />
+    </context:component-scan>
+
+    <!--
+    @Autowired를 사용할려면 annotation-config 넣어줘야 하지만
+    component-scan 을 사용하기 때문에 넣지 않아도 된다.
+    -->
+    <context:annotation-config />
+</beans>
